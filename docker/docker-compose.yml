@@ -44,7 +44,7 @@ services:
       - reader_network
 
   reader_nginx:
-    image: harbor.image-derivative.com:2443/sany/nginx:latest
+    image:nginx:latest
     container_name: reader_nginx
     ports:
       - "80:80"      # HTTP 端口
