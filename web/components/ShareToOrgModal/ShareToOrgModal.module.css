@@ -1,0 +1,266 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #fff;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 480px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.header {
+  padding: 28px 28px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.closeBtn:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+  transform: rotate(90deg);
+}
+
+.body {
+  padding: 20px 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.orgList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.orgItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.orgItem:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.orgItem.selected {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.orgAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px; /* 圆角矩形，更像APP图标 */
+  background: #e2e8f0; /* 默认底色 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: #64748b;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.orgAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 移除选中时的头像遮罩 */
+
+.orgInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.orgName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 2px;
+}
+
+.orgMeta {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.statusBadges {
+  display: flex;
+  gap: 4px;
+}
+
+.sharedBadge {
+  padding: 4px 10px;
+  background: #d1fae5;
+  color: #059669;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.unshareBadge {
+  padding: 4px 10px;
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: #64748b;
+}
+
+.emptyIcon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+}
+
+.emptyText {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.emptyHint {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.footer {
+  padding: 20px 28px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selectedCount {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 0 24px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btnSecondary {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.btnSecondary:hover {
+  background: #e2e8f0;
+}
+
+/* 按钮样式优化 */
+.btnPrimary {
+  background: #4f46e5; /* 恢复常规的 Indigo 主题色 */
+  color: white;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(79, 70, 229, 0.2);
+}
+
+.btnPrimary:hover {
+  background: #4f46e5; /* 保持原色，不加深 */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
+  filter: brightness(1.05); /* 稍微提亮一点点，而不是变深 */
+}
+
+.btnPrimary:disabled {
+  background: #a5b4fc;
+  opacity: 1;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}

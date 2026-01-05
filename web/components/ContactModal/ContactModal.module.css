@@ -1,0 +1,273 @@
+/* 遮罩层 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 弹窗主体 */
+.modal {
+  background: var(--surface);
+  border-radius: 24px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 
+    0 10px 40px -10px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: visible;
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 关闭按钮 - 悬浮在右上角 */
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.closeBtn:hover {
+  background: var(--bg-elev-1);
+  color: var(--text);
+  transform: rotate(90deg);
+}
+
+/* 内容区域 */
+.content {
+  padding: 40px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hero 区域 */
+.heroSection {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconContainer {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.heroIcon {
+  color: var(--text);
+  z-index: 1;
+  position: relative;
+}
+
+.iconBlob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  filter: blur(20px);
+  opacity: 0.5;
+  border-radius: 50%;
+  z-index: 0;
+  animation: blobPulse 3s infinite alternate ease-in-out;
+}
+
+@keyframes blobPulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; }
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 260px;
+  line-height: 1.5;
+}
+
+/* 邮箱卡片 */
+.emailCard {
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 6px 6px 6px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 24px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.emailCard:hover {
+  border-color: var(--text-muted);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.emailText {
+  font-family: monospace;
+  font-size: 16px;
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.actionBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background: var(--surface);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.actionBtn:hover {
+  color: var(--primary);
+  background: var(--primary-bg);
+  transform: scale(1.05);
+}
+
+.actionBtn.copied {
+  color: #10b981;
+  background: #ecfdf5;
+}
+
+/* 主操作按钮 */
+.mainActions {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.primaryBtn {
+  width: 100%;
+  height: 48px;
+  border-radius: 14px;
+  border: none;
+  /* 日间模式：柔和的渐变 */
+  background: linear-gradient(135deg, #a78bfa 0%, #818cf8 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.35);
+}
+
+.primaryBtn:hover::before {
+  opacity: 1;
+}
+
+.primaryBtn:active {
+  transform: translateY(0);
+}
+
+/* 适配暗色模式 - 改为低调的半透明风格 */
+:global(.dark) .primaryBtn {
+  /* 使用深色半透明背景，不再刺眼 */
+  background: rgba(139, 92, 246, 0.15);
+  /* 使用柔和的紫色作为文字颜色 */
+  color: #a78bfa;
+  /* 添加微弱的边框增加层次感 */
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  /* 移除投影或减弱投影 */
+  box-shadow: none;
+}
+
+:global(.dark) .primaryBtn:hover {
+  /* hover 时稍微加深背景 */
+  background: rgba(139, 92, 246, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 底部文字 */
+.footerText {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+  opacity: 0.7;
+}
