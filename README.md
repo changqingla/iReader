@@ -19,7 +19,7 @@ iReader 是一个基于 RAG（检索增强生成）技术的智能文档阅读�
 
 ## 演示视频
 
-https://github.com/user-attachments/assets/video.mp4](https://github.com/user-attachments/assets/8e33f6db-93df-439e-8b09-3f3bfc0ce8e3
+[https://github.com/user-attachments/assets/video.mp4](https://github.com/user-attachments/assets/8e33f6db-93df-439e-8b09-3f3bfc0ce8e3](https://github.com/user-attachments/assets/7ef5b8ce-234f-44d9-9b8b-99e5426071c9)
 
 <video src="video.mp4" controls width="100%"></video>
 
